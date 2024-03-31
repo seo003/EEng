@@ -33,3 +33,4 @@ build/
 .vscode/
 
 startbootstrap-sb-admin-2-gh-pages/
+application.properties
