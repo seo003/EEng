@@ -199,9 +199,14 @@
                         </div>
                     </li>
 
+                    <%
+                        String loginUser = (String) session.getAttribute("loginId");
+                        System.out.println("loginUser : " + loginUser);
+                        if (loginUser != null) {
+                    %>
                     <!-- Login 후 프론트 -->
                     <!-- 알람 -->
-                    <%--<li class="nav-item dropdown no-arrow mx-1">
+                    <li class="nav-item dropdown no-arrow mx-1">
                         <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-bell fa-fw"></i>
@@ -266,9 +271,9 @@
                     <div class="topbar-divider d-none d-sm-block"></div>
 
                     <li class="nav-item dropdown no-arrow">
-                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                        <a class="nav-link dropdown-toggle" href="#"  role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><%= loginUser%>님 환영합니다</span>
                         </a>
                         <!-- 사용자 정보 dropdown -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -286,19 +291,22 @@
                                 Activity Log
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                            <a class="dropdown-item" href="/logout" data-toggle="modal" data-target="#logoutModal">
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Logout
                             </a>
                         </div>
-                    </li>--%>
-
+                    </li>
+                    <%
+                    } else {
+                    %>
                     <%--Login 전 프론트--%>
                     <li class="nav-item dropdown no-arrow">
-                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                        <a class="nav-link dropdown-toggle" id="userDropdown"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="mr-2 d-none d-lg-inline text-gray-600 small">로그인이 필요합니다</span>
                         </a>
                     </li>
+                    <% } %>
                 </ul>
             </nav>
