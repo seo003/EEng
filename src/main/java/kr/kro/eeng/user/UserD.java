@@ -32,8 +32,4 @@ public class UserD implements Serializable {
 
     @Column(name="USERLV")
     private int userLv;
-
-//    @Enumerated(EnumType.STRING) // Enum 값을 어떤 형태로 정할지 결정, default = int
-//    @Column(nullable = false)
-//    private Role role;
 }
