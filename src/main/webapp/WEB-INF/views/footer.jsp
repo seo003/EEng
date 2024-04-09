@@ -60,6 +60,9 @@
 <script src="js/demo/chart-area-demo.js"></script>
 <script src="js/demo/chart-pie-demo.js"></script>
 
+<script src="js/index.js"></script>
+<script src="js/levelTest.js"></script>
+
 </body>
 
 </html>
