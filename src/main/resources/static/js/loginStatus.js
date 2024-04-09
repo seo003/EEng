@@ -4,7 +4,7 @@ function getQueryParam(param) {
 }
 
 window.onload = function () {
-    // var errorMessage = getQueryParam("errorMessage");
-    // if (errorMessage === "loginRequired")
+    var errorMessage = getQueryParam("errorMessage");
+    if (errorMessage === "loginRequired")
         alert("로그인이 필요합니다.");
 }

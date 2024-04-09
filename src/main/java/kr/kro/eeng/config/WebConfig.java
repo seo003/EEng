@@ -1,19 +1,20 @@
 package kr.kro.eeng.config;
 
 import kr.kro.eeng.interceptor.LoginInterceptor;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.InterceptorRegistration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
+@RequiredArgsConstructor
 public class WebConfig implements WebMvcConfigurer {
-
+    private final LoginInterceptor loginInterceptor;
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new LoginInterceptor())
-                .addPathPatterns("/index") //인터셉터 호출하는 주소
-                .excludePathPatterns("/css/**", "/js/**", "/assets/**"); //인터셉터 무시하는 주소
+        registry.addInterceptor(loginInterceptor)
+//                .addPathPatterns("/**") //인터셉터 호출하는 주소
+                .addPathPatterns("/index", "/levelTest") //나중에 더 추가하기
+                .excludePathPatterns("/login.do", "/css/**", "/js/**", "/assets/**"); //인터셉터 무시하는 주소
     }
 }

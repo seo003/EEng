@@ -14,9 +14,9 @@ public class UserC {
     private final UserS userS;
 
     @GetMapping("/")
-    public String login(HttpSession session) {
+    public String home(HttpSession session) {
         if (session.getAttribute("loginId") == null)
-            return "login";
+            return "redirect:/login.do";
         else return "index";
     }
     @GetMapping("/login.do")
@@ -29,14 +29,14 @@ public class UserC {
             session.setAttribute("loginId", userId);
         } else {
             System.out.println("로그인 실패");
-            return "login";
+            return "redirect:/login.do";
         }
-        return "index";
+        return "redirect:/";
     }
 
     @GetMapping("/logout.do")
     public String logout(HttpSession session) {
         session.invalidate();
-        return "login";
+        return "redirect:/login.do";
     }
 }
