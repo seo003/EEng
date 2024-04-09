@@ -12,11 +12,18 @@ import org.springframework.web.bind.annotation.PostMapping;
 @RequiredArgsConstructor
 public class UserC {
     private final UserS userS;
+
     @GetMapping("/")
+    public String login(HttpSession session) {
+        if (session.getAttribute("loginId") == null)
+            return "login";
+        else return "index";
+    }
+    @GetMapping("/login.do")
     public String login() {
         return "login";
     }
-    @PostMapping("/login")
+    @PostMapping("/login.do")
     public String login(String userId, String userPw, HttpSession session) {
         if (userS.login(userId, userPw)) {
             session.setAttribute("loginId", userId);
@@ -27,9 +34,9 @@ public class UserC {
         return "index";
     }
 
-    @GetMapping("/logout")
+    @GetMapping("/logout.do")
     public String logout(HttpSession session) {
         session.invalidate();
-        return "/";
+        return "login";
     }
 }

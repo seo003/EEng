@@ -3,7 +3,6 @@
 <%@ page import="java.io.PrintWriter" %>
 
 <%@include file="header.jsp" %>
-
 <div class="container-fluid">
 
     <div class="row">
