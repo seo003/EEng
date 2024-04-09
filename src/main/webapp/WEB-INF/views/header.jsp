@@ -182,7 +182,6 @@
                                             <span class="font-weight-bold">A new monthly report is ready to download!</span>
                                         </div>
                                     </a>
-
                                     <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
                                 </div>
                             </li>
