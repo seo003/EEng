@@ -62,6 +62,7 @@
 
 <script src="js/index.js"></script>
 <script src="js/gyr.js"></script>
+<script src="js/levelTest.js"></script>
 
 </body>
 
