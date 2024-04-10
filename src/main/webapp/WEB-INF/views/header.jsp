@@ -54,9 +54,9 @@
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">단계</h6>
-                    <a class="collapse-item" href="/voca.do">초급</a>
-                    <a class="collapse-item" href="cards.html">중급</a>
-                    <a class="collapse-item" href="cards.html">고급</a>
+                    <a class="collapse-item" href="/voca.do?lv=1">초급</a>
+                    <a class="collapse-item" href="/voca.do?lv=2">중급</a>
+                    <a class="collapse-item" href="/voca.do?lv=3">고급</a>
                 </div>
             </div>
         </li>
