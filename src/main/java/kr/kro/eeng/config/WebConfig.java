@@ -14,7 +14,7 @@ public class WebConfig implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(loginInterceptor)
 //                .addPathPatterns("/**") //인터셉터 호출하는 주소
-                .addPathPatterns("/index", "/levelTest") //나중에 더 추가하기
+                .addPathPatterns("/index", "/levelTest", "/voca.do") //나중에 더 추가하기
                 .excludePathPatterns("/login.do", "/css/**", "/js/**", "/assets/**"); //인터셉터 무시하는 주소
     }
 }
