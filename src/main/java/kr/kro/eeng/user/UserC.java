@@ -19,10 +19,12 @@ public class UserC {
             return "redirect:/login.do";
         else return "index";
     }
+
     @GetMapping("/login.do")
     public String login() {
         return "login";
     }
+
     @PostMapping("/login.do")
     public String login(String userId, String userPw, HttpSession session) {
         if (userS.login(userId, userPw)) {

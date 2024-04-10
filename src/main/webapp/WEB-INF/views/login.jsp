@@ -4,7 +4,7 @@
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 <meta name="google-signin-client_id" content="974054440102-e0chrlbdbu4ms27d51jp9e61jjd25sn3.apps.googleusercontent.com">
 <%@include file="header.jsp" %>
-<script src="js/loginStatus.js"></script>
+
 <script type="text/javascript">
     function onSignIn(googleUser) {
     // function onSignIn() {
