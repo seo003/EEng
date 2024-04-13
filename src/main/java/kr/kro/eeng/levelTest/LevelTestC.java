@@ -11,12 +11,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 public class LevelTestC {
     private final LevelTestS levelTestS;
 
-    @GetMapping("/level-test/{num}")
-    public String levelTest(@PathVariable Long num, Model model) {
+    @GetMapping("/level-test")
+    public String levelTest(Model model) {
+
         return "levelTest";
     }
-//    @GetMapping("/level-test")
-//    public String levelTest() {
-//        return "levelTest";
-//    }
 }

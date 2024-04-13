@@ -5,10 +5,6 @@
 
 <%@include file="header.jsp" %>
 
-<%
-    LevelTestD levelTestD = (LevelTestD) request.getAttribute("num");
-%>
-
 <!-- Content Wrapper -->
 <div id="content-wrapper" class="d-flex flex-column">
 
