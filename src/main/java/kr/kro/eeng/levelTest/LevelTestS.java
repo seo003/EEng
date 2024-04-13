@@ -8,16 +8,15 @@ import java.util.ArrayList;
 @Service
 @RequiredArgsConstructor
 public class LevelTestS {
-    private static int pre = 11;
-    private final LevelTestR levelTestR;
 
-    public ArrayList<LevelTestD> levelTest(int lv){
-        ArrayList<LevelTestD> lt1 = levelTestR.findByLv(1);
-        ArrayList<LevelTestD> lt2 = levelTestR.findByLv(2);
-        ArrayList<LevelTestD> lt3 = levelTestR.findByLv(3);
+    private final LevelTestR ltR;
+    private final LevelTestChoiceR ltcR;
 
+    public ArrayList<LevelTestD> levelTest(int lv) {
+        return ltR.findByLv(lv);
+    }
 
-
-        return lt1;
+    public ArrayList<LevelTestChoiceD> levelTestChoice() {
+        return (ArrayList<LevelTestChoiceD>) ltcR.findAll();
     }
 }

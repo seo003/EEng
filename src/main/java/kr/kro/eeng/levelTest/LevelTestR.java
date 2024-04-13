@@ -7,6 +7,6 @@ import org.springframework.data.repository.query.Param;
 import java.util.ArrayList;
 
 public interface LevelTestR extends JpaRepository<LevelTestD, Long> {
-    @Query(value = "SELECT * FROM LEVELTEST WHERE lv = :lv ORDER BY RAND()", nativeQuery = true)
+    @Query(value = "SELECT * FROM (SELECT * FROM LEVELTEST WHERE lv = :lv ORDER BY DBMS_RANDOM.RANDOM)", nativeQuery = true)
     ArrayList<LevelTestD> findByLv(@Param("lv") int lv);
 }

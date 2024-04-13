@@ -26,4 +26,8 @@ public class UserS {
         }
         return false;
     }
+
+    public int getUserLvFromUserId(String userId) {
+        return userR.findUserLvByUserId(userId);
+    }
 }

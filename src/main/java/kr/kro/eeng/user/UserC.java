@@ -33,7 +33,12 @@ public class UserC {
             System.out.println("로그인 실패");
             return "redirect:/login.do";
         }
-        return "redirect:/";
+        int userLv = userS.getUserLvFromUserId(userId);
+        if (userLv == 1) {
+            return "redirect:/";
+        } else {
+            return "/level-test";
+        }
     }
 
     @GetMapping("/logout.do")

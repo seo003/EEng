@@ -20,7 +20,7 @@ public class LevelTestChoiceD implements Serializable {
     private Long idx;
 
     @Column(name="NUM")
-    private Long num;
+    private int num;
 
     @Column(name="CHOICE")
     private String choice;
