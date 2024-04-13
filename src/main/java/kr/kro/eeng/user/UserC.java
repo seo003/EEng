@@ -34,6 +34,12 @@ public class UserC {
             return "redirect:/login.do";
         }
         return "redirect:/";
+//        레벨테스트 여부에 따라 return < 오류
+//        if (userS.doLevelTest(userId)) {
+//            return "redirect:/";
+//        } else {
+//            return "/level-test";
+//        }
     }
 
     @GetMapping("/logout.do")

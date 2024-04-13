@@ -26,4 +26,13 @@ public class UserS {
         }
         return false;
     }
+
+    public boolean doLevelTest(String userId) {
+        Long userLv = userR.findUserLvByUserId(userId);
+        if (userLv == 1) {
+            return true;
+        }else {
+            return false;
+        }
+    }
 }

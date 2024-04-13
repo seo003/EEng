@@ -41,22 +41,12 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                        </tr>
-                        <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                        </tr><tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                        </tr><tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                        </tr>
-
-
+                        <c:forEach var="voca" items="${vocaListFromLv}">
+                            <tr>
+                                <td>${voca.getVoca()}</td>
+                                <td>${voca.getVocaMean()}</td>
+                            </tr>
+                        </c:forEach>
                         </tbody>
                     </table>
                 </div>
