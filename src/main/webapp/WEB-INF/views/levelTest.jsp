@@ -5,6 +5,11 @@
 
 <%@include file="header.jsp" %>
 
+<%--<script>--%>
+<%--    $(document).ready(function () {--%>
+<%--        divByType(type);--%>
+<%--    });--%>
+<%--</script>--%>
 
 <div id="ltList1" data-id="${ltList1}"></div>
 <div id="ltList2" data-id="${ltList2}"></div>
@@ -42,88 +47,34 @@
                     </div>
                     <!-- Card Body -->
                     <div class="card-body">
-                        <div class="chart-area" id="question">
-
+                        <div class="h5 mb-0 text-gray-900" id="question">
+                            <!-- 질문 출력 -->
                         </div>
+                        <br><br>
+                        <div class="h5 mb-0 text-gray-900 font-weight-bold" id="sentence">
+                            <!-- 문장 뜻 출력 -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-chat-right-quote" viewBox="0 0 16 16">
+                                <path d="M2 1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h9.586a2 2 0 0 1 1.414.586l2 2V2a1 1 0 0 0-1-1zm12-1a2 2 0 0 1 2 2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z"/>
+                                <path d="M7.066 4.76A1.665 1.665 0 0 0 4 5.668a1.667 1.667 0 0 0 2.561 1.406c-.131.389-.375.804-.777 1.22a.417.417 0 1 0 .6.58c1.486-1.54 1.293-3.214.682-4.112zm4 0A1.665 1.665 0 0 0 8 5.668a1.667 1.667 0 0 0 2.561 1.406c-.131.389-.375.804-.777 1.22a.417.417 0 1 0 .6.58c1.486-1.54 1.293-3.214.682-4.112z"/>
+                            </svg>
+                        </div>
+                        <br>
+                        <div class="h5 mb-0 text-gray-900" id="userAnwser">
+                            <!-- 사용자 답변 출력 -->
+                        </div>
+                        <hr>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div>
-            <!-- 보기: 타입이 0일때 -->
-            <div class="row">
-                <!-- 1번 -->
-                <div class="col-xl-3 col-md-6 mb-4">
-                    <div class="card border-left-primary shadow h-100 py-2"
-                         onclick="selectRBtn('rBtn1', this, 'rgb(170,180,234')">
-                        <div class="card-body">
-                            <div class="row no-gutters align-items-center">
-                                <div class="col mr-2">
-                                    <div class="h5 mb-0 font-weight-bold text-gray-900">
-                                        <input type="radio" value="1" name="answer" id="rBtn1"/>
-                                        ${choices[0]}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- 2번 -->
-                <div class="col-xl-3 col-md-6 mb-4">
-                    <div class="card border-left-success shadow h-100 py-2"
-                         onclick="selectRBtn('rBtn2', this, 'rgb(190,230,206')">
-                        <div class="card-body">
-                            <div class="row no-gutters align-items-center">
-                                <div class="col mr-2">
-                                    <div class="h5 mb-0 font-weight-bold text-gray-900">
-                                        <input type="radio" value="2" name="answer" id="rBtn2"/>
-                                        ${choices[1]}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 3번 -->
-                <div class="col-xl-3 col-md-6 mb-4">
-                    <div class="card border-left-info shadow h-100 py-2"
-                         onclick="selectRBtn('rBtn3', this, 'rgb(185,220,236')">
-                        <div class="card-body">
-                            <div class="row no-gutters align-items-center">
-                                <div class="h5 mb-0 font-weight-bold text-gray-900">
-                                    <input type="radio" value="3" name="answer" id="rBtn3"/>
-                                    ${choices[2]}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 4번 -->
-                <div class="col-xl-3 col-md-6 mb-4">
-                    <div class="card border-left-warning shadow h-100 py-2"
-                         onclick="selectRBtn('rBtn4', this, 'rgb(240,220,160)')">
-                        <div class="card-body">
-                            <div class="row no-gutters align-items-center">
-                                <div class="h5 mb-0 font-weight-bold text-gray-900">
-                                    <input type="radio" value="4" name="answer" id="rBtn4"/>
-                                    ${choices[3]}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div id="choices">
+            <!-- divByType 함수 실행 시 내용 출력 -->
         </div>
-
+        <!-- /.container-fluid -->
 
     </div>
-    <!-- /.container-fluid -->
-
-</div>
-<!-- End of Main Content -->
+    <!-- End of Main Content -->
 
 <%@include file="footer.jsp" %>
