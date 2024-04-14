@@ -9,7 +9,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Table(name = "USERS")
+@Table(name = "BOOKCONTENT")
 @Getter @Setter @ToString
 public class BookContentD {
     @Id

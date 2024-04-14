@@ -1,15 +1,17 @@
 package kr.kro.eeng.user;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class UserS {
 
     @Autowired
-    private UserR userR;
+    private final UserR userR;
 
     public boolean login(String userId, String userPw) {
         Optional<UserD> userEntity = userR.findByUserId(userId);

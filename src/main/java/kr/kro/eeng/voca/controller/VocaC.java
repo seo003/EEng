@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
@@ -16,7 +16,7 @@ public class VocaC {
 
     @GetMapping("/voca.do")
     public String voca(int lv, Model model) {
-        ArrayList<VocaListD> vocaListFromLv = vocaS.getVocaListbyLv(lv);
+        List<VocaListD> vocaListFromLv = vocaS.getVocaListbyLv(lv);
         if (vocaListFromLv.isEmpty() == false) {
             //데이터 존재
             model.addAttribute("vocaListFromLv", vocaListFromLv);

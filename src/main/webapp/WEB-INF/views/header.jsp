@@ -66,7 +66,7 @@
         <hr class="sidebar-divider">
 
         <li class="nav-item active">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="/booklist.do">
                 <i class="fas fa-fw fa-solid fa-book-open"></i>
                 <span>영어책</span></a>
         </li>
