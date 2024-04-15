@@ -2,3 +2,15 @@
     height:550px;
     padding-left:7%;
 }
+
+.bookInfo_click {
+    cursor: pointer;
+}
+.bookInfo_click:hover {
+    color:#4e73df;
+}
+
+.k_table {
+    color:black;
+    background-color:white;
+}
