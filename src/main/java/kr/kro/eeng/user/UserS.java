@@ -1,15 +1,17 @@
 package kr.kro.eeng.user;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class UserS {
 
     @Autowired
-    private UserR userR;
+    private final UserR userR;
 
     public boolean login(String userId, String userPw) {
         Optional<UserD> userEntity = userR.findByUserId(userId);
@@ -25,5 +27,14 @@ public class UserS {
             System.out.println("존재하지 않는 ID입니다.");
         }
         return false;
+    }
+
+    public boolean doLevelTest(String userId) {
+        Long userLv = userR.findUserLvByUserId(userId);
+        if (userLv == 1) {
+            return true;
+        }else {
+            return false;
+        }
     }
 }
