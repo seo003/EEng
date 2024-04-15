@@ -21,13 +21,8 @@ public class LevelTestC {
         model.addAttribute("ltList1", ltList1);
         model.addAttribute("ltList2", ltList2);
         model.addAttribute("ltList3", ltList3);
-
-
+        
         ArrayList<LevelTestChoiceD> ltcList = levelTestS.levelTestChoice();
-//        ArrayList<String> choices = new ArrayList<>();
-//        for (LevelTestChoiceD c : ltcList) {
-//            choices.add(c.getChoice());
-//        }
 
         model.addAttribute("ltcList", ltcList);
 

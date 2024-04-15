@@ -32,11 +32,11 @@
         <div class="row">
             <!-- Area Chart -->
             <div class="col-xl-12 col-lg-7">
-                <div class="card shadow mb-4">
+                <div class="card shadow mb-4 nohover">
                     <!-- Card Header - Dropdown -->
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                         <h6 class="m-0 font-weight-bold text-primary" id="level"></h6>
-                        <div class="dropdown no-arrow">
+                        <div class="dropdown no-arrow yeshover">
                             <a href="#" class="btn btn-primary btn-icon-split">
                                 <span class="text">확인</span>
                                 <span class="icon text-white-500">
