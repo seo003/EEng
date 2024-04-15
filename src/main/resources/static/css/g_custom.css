@@ -1,1 +1,18 @@
-/*custom*/
+.card {
+    cursor: pointer;
+}
+.selected {
+    background-color: rgb(170,180,234);
+}
+.card button {
+    border: none;
+    background-color: transparent;
+}
+
+.nohover {
+    pointer-events: none;
+}
+
+.yeshover {
+    pointer-events: auto;
+}

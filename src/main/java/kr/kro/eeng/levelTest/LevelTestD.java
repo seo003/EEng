@@ -17,7 +17,7 @@ import java.sql.Date;
 public class LevelTestD implements Serializable {
     @Id
     @Column(name="NUM")
-    private Long num;
+    private int num;
 
     @Column(name="QUESTION")
     private String question;
