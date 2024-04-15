@@ -11,7 +11,6 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class VocaS {
-
     @Autowired
     private final VocaListR vocaListR;
 
