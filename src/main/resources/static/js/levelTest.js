@@ -247,7 +247,6 @@ function divByType(type) {
         }
         html += `</div>`;
     }
-
     choiceDiv.innerHTML = html;
 }
 
