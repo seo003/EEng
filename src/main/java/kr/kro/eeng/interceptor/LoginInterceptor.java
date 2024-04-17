@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 @Component
 public class LoginInterceptor implements HandlerInterceptor {
-    @Override
+    @Override //요청이 컨트롤러로 전달 되기 전에 실행되는 로직 정의
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         HttpSession session = request.getSession();
         if (session.getAttribute("loginId") == null) {
@@ -15,7 +15,6 @@ public class LoginInterceptor implements HandlerInterceptor {
             response.sendRedirect("/login.do?error=loginRequired");
             return false; // 요청 처리를 계속하지 않음
         }
-
         return true; // 요청 처리 계속
     }
 
