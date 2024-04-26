@@ -5,17 +5,10 @@
 
 <%@include file="header.jsp" %>
 
-<%--<script>--%>
-<%--    $(document).ready(function () {--%>
-<%--        divByType(type);--%>
-<%--    });--%>
-<%--</script>--%>
-
 <div id="ltList1" data-id="${ltList1}"></div>
 <div id="ltList2" data-id="${ltList2}"></div>
 <div id="ltList3" data-id="${ltList3}"></div>
 <div id="ltcList" data-id="${ltcList}"></div>
-
 
 <!-- Content Wrapper -->
 <div id="content-wrapper" class="d-flex flex-column">
