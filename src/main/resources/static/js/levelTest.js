@@ -46,15 +46,6 @@ function selectCBtn(card) {
     console.log(choiceValue);
     console.log(index);
     console.log(userAnswer);
-
-    //사용자 답변
-
-
-    // if (type === 0){
-    //     userAnswerDiv.remove();
-    // }else {
-    //     userAnswerDiv.innerText = userAnswer.toString();
-    // }
 }
 
 

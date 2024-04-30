@@ -28,6 +28,4 @@ public class LevelTestC {
 
         return "levelTest";
     }
-
-
 }
