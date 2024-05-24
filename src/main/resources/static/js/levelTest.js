@@ -42,10 +42,6 @@ function selectCBtn(card) {
     button.style.fontWeight = card.classList.contains("selected") ? "bold" : "normal";
 
     userAnswerDiv.innerText = userAnswer.join(' ');
-
-    console.log(choiceValue);
-    console.log(index);
-    console.log(userAnswer);
 }
 
 
@@ -57,15 +53,17 @@ var ltList3 = document.getElementById("ltList3").getAttribute("data-id");
 var ltcList = document.getElementById("ltcList").getAttribute("data-id");
 
 //ltList 데이터 가공
-var lv1 = getTwoDArray(ltList1);
-var lv2 = getTwoDArray(ltList2);
-var lv3 = getTwoDArray(ltList3);
+var lv1 = getDataArray(ltList1);
+var lv2 = getDataArray(ltList2);
+var lv3 = getDataArray(ltList3);
+
+console.log("ltList1: " + ltList1)
+console.log("lv1: %o", lv1)
 
 //ltcList 데이터 가공
 var num = lv1[0].num;
-// console.log(ltcList);
-// console.log(ltcData);
-// console.log(num);
+console.log("ltcList: " + ltcList);
+console.log("num: " + num);
 
 //질문
 var questionDiv = document.getElementById("question");
@@ -117,8 +115,8 @@ function getChoiceByNum(ltcList, num) {
 }
 
 
-/*** LevelTestD: String -> 이차원 배열 ***/
-function getTwoDArray(str) {
+/*** LevelTestD: String -> 객체로 구성된 배열 ***/
+function getDataArray(str) {
     var matches = str.match(/LevelTestD\([^)]+\)/g);
 
     var result = matches.map(function (match) {
