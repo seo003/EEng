@@ -8,17 +8,43 @@
     <!-- title -->
     <h1 class="h3 mb-2 text-gray-800">Let's Read Book!</h1>
     <p class="mb-4">좌클릭 : 문장 뜻 보기<br>우클릭 : 단어 뜻 보기</p>
-    <!-- Basic Card Example -->
+    <!-- content -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">${bookInfo.getBookName()}</h6>
         </div>
         <div class="card-body">
             <c:forEach var="sentence" items="${bookContent}">
-                <p>${sentence.getSent()}</p><%--8문장씩 페이징처리--%>
+                <a href="#"><p>${sentence.getSent()}</p></a>
             </c:forEach>
         </div>
     </div>
 
+    <!-- paging -->
+    <div class="pagination">
+        <c:if test="${currentPage > 0}">
+            <a href="readBook.do?bookId=${bookInfo.bookId}&page=${currentPage - 1}" class="btn btn-primary btn-icon-split">
+                <span class="text"><</span>
+            </a>
+        </c:if>
+        <c:forEach begin="0" end="${totalPages - 1}" var="i">
+            <c:if test="${i == currentPage}">
+                <a class="btn btn-info btn-icon-split">
+                    <span class="text">${i+1}</span>
+                </a>
+            </c:if>
+            <c:if test="${i != currentPage}">
+                <a href="readBook.do?bookId=${bookInfo.bookId}&page=${i}" class="btn btn-primary btn-icon-split">
+                    <span class="text">${i+1}</span>
+                </a>
+            </c:if>
+        </c:forEach>
+        <c:if test="${currentPage < totalPages - 1}">
+            <a href="readBook.do?bookId=${bookInfo.bookId}&page=${currentPage + 1}" class="btn btn-primary btn-icon-split">
+                <span class="text">></span>
+            </a>
+        </c:if>
+    </div>
+    <br>
 </div>
 <%@include file="footer.jsp" %>
