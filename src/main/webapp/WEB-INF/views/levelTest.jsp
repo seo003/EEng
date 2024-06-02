@@ -22,7 +22,7 @@
         </div>
 
         <%--  form tag로 사용자 정답 제출  --%>
-        <form method="post" action="/level-test/checkAnswer.do" onsubmit="return checkValidate();">
+        <form method="post" action="/level-test/checkAnswer.do">
             <!-- 문제 -->
             <div class="row">
                 <!-- Area Chart -->

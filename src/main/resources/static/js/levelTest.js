@@ -16,6 +16,9 @@ function selectRBtn(rBtn, cardDiv, color) {
     }
 
     preCardDiv = cardDiv;
+
+    // 사용자 선택값 전달
+    setAnswer(radioButton.value);
 }
 
 
@@ -42,6 +45,9 @@ function selectCBtn(card) {
     button.style.fontWeight = card.classList.contains("selected") ? "bold" : "normal";
 
     userAnswerDiv.innerText = userAnswer.join(' ');
+
+    // 사용자 선택값 전달
+    setAnswer(userAnswerDiv.innerText);
 }
 
 
@@ -156,7 +162,7 @@ function divByType(type) {
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
                                     <div class="h5 mb-0 text-gray-900">
-                                        <input type="radio" value="${choices[0]}" name="answer" id="rBtn1"/>
+                                        <input type="radio" value="${choices[0]}" name="answer" id="rBtn1" onclick="setAnswer('${choices[0]}')" />
                                         ${choices[0]}
                                     </div>
                                 </div>
@@ -223,7 +229,7 @@ function divByType(type) {
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
                                     <div class="h5 mb-0 font-weight-bold text-gray-900">
-                                         <button type="button" onclick="setAnswer('${choices[i]}')" value="${choices[i]}">
+                                         <button type="button" value="${choices[i]}">
                                         ${choices[i]}
                                         </button>
                                     </div>
@@ -248,14 +254,6 @@ function setAnswer(value) {
 var answer = lv1[0].answer;
 document.getElementById('answer').value = answer;
 
-// 정답 체크 전 확인
-function checkValidate(){
-    if(document.getElementById('userAnwser').value == ""){
-        alert("정답을 입력해주세요.");
-        return false;
-    }
-    return true;
-}
 
 
 

@@ -40,6 +40,11 @@ public class LevelTestC {
         System.out.println("정답: " + answer);
         System.out.println("사용자정답: " + userAnswer);
 
+
+        if (answer == userAnswer){
+
+        }
+
         return "checkAnswer";
     }
 }
