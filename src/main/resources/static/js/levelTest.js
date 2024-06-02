@@ -173,7 +173,7 @@ function divByType(type) {
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
                                     <div class="h5 mb-0 text-gray-900">
-                                        <input type="radio" value="2" name="answer" id="rBtn2"/>
+                                        <input type="radio" value="${choices[1]}" name="answer" id="rBtn2"/>
                                         ${choices[1]}
                                     </div>
                                 </div>
@@ -189,7 +189,7 @@ function divByType(type) {
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
                                 <div class="h5 mb-0 text-gray-900">
-                                    <input type="radio" value="3" name="answer" id="rBtn3"/>
+                                    <input type="radio" value="${choices[2]}" name="answer" id="rBtn3"/>
                                     ${choices[2]}
                                 </div>
                             </div>
@@ -204,7 +204,7 @@ function divByType(type) {
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
                                 <div class="h5 mb-0 text-gray-900">
-                                    <input type="radio" value="4" name="answer" id="rBtn4"/>
+                                    <input type="radio" value="${choices[3]}" name="answer" id="rBtn4"/>
                                     ${choices[3]}
                                 </div>
                             </div>
@@ -223,7 +223,7 @@ function divByType(type) {
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
                                     <div class="h5 mb-0 font-weight-bold text-gray-900">
-                                        <button value="${choices[i]}">
+                                         <button type="button" onclick="setAnswer('${choices[i]}')">
                                         ${choices[i]}
                                         </button>
                                     </div>
@@ -239,7 +239,23 @@ function divByType(type) {
     choiceDiv.innerHTML = html;
 }
 
+// 사용자 정답 button -> value에 넣기
+function setAnswer(value) {
+    document.getElementById('userAnswerInput').value = value;
+}
 
+// 정답
+var answer = lv1[0].answer;
+document.getElementById('answer').value = answer;
+
+// 정답 체크 전 확인
+function checkValidate(){
+    if(document.getElementById('title').value == "" || document.getElementById('content').value == ""){
+        alert("정답을 입력해주세요.");
+        return false;
+    }
+    return true;
+}
 
 
 

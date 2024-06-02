@@ -1,9 +1,12 @@
 package kr.kro.eeng.levelTest;
 
+import jakarta.servlet.http.HttpServletRequest;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.ArrayList;
 
@@ -27,5 +30,16 @@ public class LevelTestC {
         model.addAttribute("ltcList", ltcList);
 
         return "levelTest";
+    }
+
+    @PostMapping("/level-test/checkAnswer.do")
+    public String checkAnswer(Model model, HttpServletRequest request) {
+        String answer = request.getParameter("answer");
+        String userAnswer = request.getParameter("userAnswer");
+
+        System.out.println("정답" + answer);
+        System.out.println("사용자정답" + userAnswer);
+
+        return "checkAnswer";
     }
 }
