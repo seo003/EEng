@@ -37,8 +37,8 @@ public class LevelTestC {
         String answer = request.getParameter("answer");
         String userAnswer = request.getParameter("userAnswer");
 
-        System.out.println("정답" + answer);
-        System.out.println("사용자정답" + userAnswer);
+        System.out.println("정답: " + answer);
+        System.out.println("사용자정답: " + userAnswer);
 
         return "checkAnswer";
     }

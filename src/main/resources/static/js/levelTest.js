@@ -28,7 +28,7 @@ function selectCBtn(card) {
     var button = card.querySelector("button");
     var choiceValue = button.value;
 
-    var userAnswerDiv = document.getElementById("userAnwser");
+    var userAnswerDiv = document.getElementById("userAnwserField");
     var index = userAnswer.indexOf(choiceValue);
 
     if (index === -1){
@@ -223,7 +223,7 @@ function divByType(type) {
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
                                     <div class="h5 mb-0 font-weight-bold text-gray-900">
-                                         <button type="button" onclick="setAnswer('${choices[i]}')">
+                                         <button type="button" onclick="setAnswer('${choices[i]}')" value="${choices[i]}">
                                         ${choices[i]}
                                         </button>
                                     </div>
@@ -250,7 +250,7 @@ document.getElementById('answer').value = answer;
 
 // 정답 체크 전 확인
 function checkValidate(){
-    if(document.getElementById('title').value == "" || document.getElementById('content').value == ""){
+    if(document.getElementById('userAnwser').value == ""){
         alert("정답을 입력해주세요.");
         return false;
     }

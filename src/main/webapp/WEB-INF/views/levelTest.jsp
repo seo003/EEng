@@ -50,7 +50,7 @@
                                 </svg>
                             </div>
                             <br>
-                            <div class="h5 mb-0 text-gray-900" id="userAnwser">
+                            <div class="h5 mb-0 text-gray-900" id="userAnwserField">
                                 <!-- 사용자 답변 출력 -->
                             </div>
                             <input type="hidden" name="userAnswer" id="userAnswerInput" value="">
