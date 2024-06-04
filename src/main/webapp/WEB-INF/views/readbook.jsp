@@ -16,8 +16,10 @@
         </div>
         <div class="card-body">
             <c:forEach var="sentence" items="${bookContent}">
-                <a href="#"><p id="text-to-translate" class="text-gray-800">${sentence.getSent()}</p></a>
-                <div id="translated-texts"></div>
+<%--                <a href="#"><p id="text-to-translate" class="text-gray-800">${sentence.getSent()}</p></a>--%>
+<%--                <div id="translated-texts"></div>--%>
+                <a href="#"><p id="text-to-translate-${sentence.getSentNo()}" class="text-gray-800">${sentence.getSent()}</p></a>
+                <div id="translated-texts-${sentence.getSentNo()}"></div>
             </c:forEach>
         </div>
     </div>
