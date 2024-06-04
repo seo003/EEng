@@ -14,19 +14,14 @@ import java.util.ArrayList;
 @RequiredArgsConstructor
 public class LevelTestC {
     private final LevelTestS levelTestS;
+    private int score;
 
     @GetMapping("/level-test")
     public String levelTest(Model model) {
-        ArrayList<LevelTestD> ltList1 = levelTestS.levelTest(1);
-        ArrayList<LevelTestD> ltList2 = levelTestS.levelTest(2);
-        ArrayList<LevelTestD> ltList3 = levelTestS.levelTest(3);
-
-        model.addAttribute("ltList1", ltList1);
-        model.addAttribute("ltList2", ltList2);
-        model.addAttribute("ltList3", ltList3);
+        ArrayList<LevelTestD> ltList = levelTestS.levelTest();
+        model.addAttribute("ltList", ltList);
 
         ArrayList<LevelTestChoiceD> ltcList = levelTestS.levelTestChoice();
-
         model.addAttribute("ltcList", ltcList);
 
         return "levelTest";
@@ -36,14 +31,17 @@ public class LevelTestC {
     public String checkAnswer(Model model, HttpServletRequest request) {
         String answer = request.getParameter("answer");
         String userAnswer = request.getParameter("userAnswer");
+        String lv = request.getParameter("lv");
 
         System.out.println("정답: " + answer);
         System.out.println("사용자정답: " + userAnswer);
+        System.out.println("레벨: " + lv);
 
-
-        if (answer == userAnswer){
-
+        if (answer.equals(userAnswer)){
+            score += Integer.parseInt(lv);
         }
+
+        System.out.println(score);
 
         return "checkAnswer";
     }

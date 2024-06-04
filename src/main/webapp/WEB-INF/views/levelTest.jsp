@@ -5,9 +5,7 @@
 
 <%@include file="header.jsp" %>
 
-<div id="ltList1" data-id="${ltList1}"></div>
-<div id="ltList2" data-id="${ltList2}"></div>
-<div id="ltList3" data-id="${ltList3}"></div>
+<div id="ltList" data-id="${ltList}"></div>
 <div id="ltcList" data-id="${ltcList}"></div>
 
 <!-- Content Wrapper -->
@@ -55,6 +53,7 @@
                             </div>
                             <input type="hidden" name="userAnswer" id="userAnswerInput" value="">
                             <input type="hidden" name="answer" id="answer" value="">
+                            <input type="hidden" name="lv" id="lv" value="">
                             <hr>
                         </div>
                     </div>

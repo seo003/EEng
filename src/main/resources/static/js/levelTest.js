@@ -24,6 +24,7 @@ function selectRBtn(rBtn, cardDiv, color) {
 
 /*** 보기 문항: type==1 ***/
 var userAnswer = [];
+
 function selectCBtn(card) {
     var card = event.currentTarget;
     card.classList.toggle("selected");
@@ -34,10 +35,10 @@ function selectCBtn(card) {
     var userAnswerDiv = document.getElementById("userAnwserField");
     var index = userAnswer.indexOf(choiceValue);
 
-    if (index === -1){
+    if (index === -1) {
         userAnswer.push(choiceValue);
         button.classList.add("selected");
-    }else {
+    } else {
         userAnswer.splice(index, 1);
         button.classList.remove("selected");
     }
@@ -51,48 +52,49 @@ function selectCBtn(card) {
 }
 
 
-
 /*** 레벨테스트 데이터 가져오기 ***/
-var ltList1 = document.getElementById("ltList1").getAttribute("data-id");
-var ltList2 = document.getElementById("ltList2").getAttribute("data-id");
-var ltList3 = document.getElementById("ltList3").getAttribute("data-id");
+var ltList = document.getElementById("ltList").getAttribute("data-id");
 var ltcList = document.getElementById("ltcList").getAttribute("data-id");
 
 //ltList 데이터 가공
-var lv1 = getDataArray(ltList1);
-var lv2 = getDataArray(ltList2);
-var lv3 = getDataArray(ltList3);
+var lt = getDataArray(ltList);
 
-console.log("ltList1: " + ltList1)
-console.log("lv1: %o", lv1)
+console.log("ltList: " + ltList)
+console.log("lt: %o", lt)
 
+//for (var i = 0; i < lt.length; i++) {
 //ltcList 데이터 가공
-var num = lv1[0].num;
-console.log("ltcList: " + ltcList);
-console.log("num: " + num);
+    var num = lt[0].num;
+    console.log("ltcList: " + ltcList);
+    console.log("num: " + num);
 
 //질문
-var questionDiv = document.getElementById("question");
-questionDiv.append(lv1[0].question);
+    var questionDiv = document.getElementById("question");
+    questionDiv.append(lt[0].question);
 
 //레벨
-var levelDiv = document.getElementById("level");
-levelDiv.innerText = "레벨 " + lv1[0].lv;
+    var levelDiv = document.getElementById("level");
+    levelDiv.innerText = "레벨 " + lt[0].lv;
+
+    document.getElementById('lv').value = lt[0].lv;
 
 //보기
-var type = lv1[0].type;
-divByType(type);
+    var type = lt[0].type;
+    divByType(type);
 
 //문장 뜻
-var sentenceDiv = document.getElementById("sentence");
-var sentence = lv1[0].sentence;
-if (type === 0){
-    sentenceDiv.remove();
-}else {
-    sentenceDiv.append(sentence);
-}
+    var sentenceDiv = document.getElementById("sentence");
+    var sentence = lt[0].sentence;
+    if (type === 0) {
+        sentenceDiv.remove();
+    } else {
+        sentenceDiv.append(sentence);
+    }
 
-
+// 정답
+    var answer = lt[0].answer;
+    document.getElementById('answer').value = answer;
+//}
 
 /*** ltcList에서 num에 맞는 choices 가져오기 ***/
 function getChoiceByNum(ltcList, num) {
@@ -249,12 +251,3 @@ function divByType(type) {
 function setAnswer(value) {
     document.getElementById('userAnswerInput').value = value;
 }
-
-// 정답
-var answer = lv1[0].answer;
-document.getElementById('answer').value = answer;
-
-
-
-
-
