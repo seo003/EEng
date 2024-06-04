@@ -1,6 +1,8 @@
 package kr.kro.eeng.user;
 
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,4 +39,8 @@ public class UserS {
             return false;
         }
     }
+
+    @Getter
+    @Setter
+    private int num;
 }

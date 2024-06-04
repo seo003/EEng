@@ -32,7 +32,7 @@ function selectCBtn(card) {
     var button = card.querySelector("button");
     var choiceValue = button.value;
 
-    var userAnswerDiv = document.getElementById("userAnwserField");
+    var userAnswerDiv = document.getElementById("userAnswerField");
     var index = userAnswer.indexOf(choiceValue);
 
     if (index === -1) {
@@ -55,6 +55,7 @@ function selectCBtn(card) {
 /*** 레벨테스트 데이터 가져오기 ***/
 var ltList = document.getElementById("ltList").getAttribute("data-id");
 var ltcList = document.getElementById("ltcList").getAttribute("data-id");
+var numOrder = document.getElementById("num").getAttribute("data-id");
 
 //ltList 데이터 가공
 var lt = getDataArray(ltList);
@@ -62,39 +63,50 @@ var lt = getDataArray(ltList);
 console.log("ltList: " + ltList)
 console.log("lt: %o", lt)
 
-//for (var i = 0; i < lt.length; i++) {
 //ltcList 데이터 가공
-    var num = lt[0].num;
-    console.log("ltcList: " + ltcList);
-    console.log("num: " + num);
+var num = lt[numOrder].num;
+console.log("ltcList: " + ltcList);
+console.log("num: " + num);
 
 //질문
-    var questionDiv = document.getElementById("question");
-    questionDiv.append(lt[0].question);
+var questionDiv = document.getElementById("question");
+questionDiv.append(lt[numOrder].question);
 
 //레벨
-    var levelDiv = document.getElementById("level");
-    levelDiv.innerText = "레벨 " + lt[0].lv;
+document.getElementById('lv').value = lt[numOrder].lv;
+// var levelDiv = document.getElementById("level");
+// if (lt[numOrder].lv == 1) {
+//     levelDiv.innerText = "하";
+// }else if (lt[numOrder].lv == 2) {
+//     levelDiv.innerText = "중";
+// }else {
+//     levelDiv.innerText = "상";
+// }
+// console.log("***" + lt[numOrder].lv);
+//levelDiv.innerText = "레벨 " + lt[numOrder].lv;
 
-    document.getElementById('lv').value = lt[0].lv;
+//문제 넘버
+var numDiv = document.getElementById("numOrder");
+numDiv.innerText = Number(numOrder) + 1 + "번";
 
 //보기
-    var type = lt[0].type;
-    divByType(type);
+var type = lt[numOrder].type;
+divByType(type);
 
 //문장 뜻
-    var sentenceDiv = document.getElementById("sentence");
-    var sentence = lt[0].sentence;
-    if (type === 0) {
-        sentenceDiv.remove();
-    } else {
-        sentenceDiv.append(sentence);
-    }
+var sentenceDiv = document.getElementById("sentence");
+var sentence = lt[numOrder].sentence;
+if (type === 0) {
+    sentenceDiv.remove();
+} else {
+    sentenceDiv.append(sentence);
+}
 
 // 정답
-    var answer = lt[0].answer;
-    document.getElementById('answer').value = answer;
-//}
+var answer = lt[numOrder].answer;
+document.getElementById('answer').value = answer;
+document.getElementById("answerField").innerText = "정답: " + answer;
+
 
 /*** ltcList에서 num에 맞는 choices 가져오기 ***/
 function getChoiceByNum(ltcList, num) {

@@ -1,6 +1,7 @@
 package kr.kro.eeng.levelTest;
 
 import jakarta.servlet.http.HttpServletRequest;
+import kr.kro.eeng.user.UserS;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -14,15 +15,25 @@ import java.util.ArrayList;
 @RequiredArgsConstructor
 public class LevelTestC {
     private final LevelTestS levelTestS;
+    private final UserS userS;
     private int score;
+    private ArrayList<LevelTestD> ltList;
+    private ArrayList<LevelTestChoiceD> ltcList;
+    private int num;
+    private boolean tf = false;
 
     @GetMapping("/level-test")
     public String levelTest(Model model) {
-        ArrayList<LevelTestD> ltList = levelTestS.levelTest();
+        ltList = levelTestS.levelTest();
         model.addAttribute("ltList", ltList);
 
-        ArrayList<LevelTestChoiceD> ltcList = levelTestS.levelTestChoice();
+        ltcList = levelTestS.levelTestChoice();
         model.addAttribute("ltcList", ltcList);
+
+        num = userS.getNum();
+        System.out.println("***num: " + num);
+
+        model.addAttribute("numOrder", num);
 
         return "levelTest";
     }
@@ -39,10 +50,44 @@ public class LevelTestC {
 
         if (answer.equals(userAnswer)){
             score += Integer.parseInt(lv);
+            tf = true;
+        }else {
+            tf = false;
         }
 
-        System.out.println(score);
+        System.out.println("***score: " + score);
+        System.out.println(tf);
+
+        model.addAttribute("ltList", ltList);
+        model.addAttribute("ltcList", ltcList);
+        model.addAttribute("numOrder", num);
+        model.addAttribute("tf", tf);
 
         return "checkAnswer";
+    }
+
+    @PostMapping("/level-test/nextNum.do")
+    public String nextNum(Model model) {
+        model.addAttribute("ltList", ltList);
+        model.addAttribute("ltcList", ltcList);
+
+        num += 1;
+        model.addAttribute("numOrder", num);
+
+        if (num == ltList.size()){
+            return "redirect:/level-test/result";
+        }
+
+        System.out.println("++++++++++num: " + num);
+        System.out.println("++++++++++size: " + ltList.size());
+
+        return "levelTest";
+    }
+
+    @GetMapping("/level-test/result")
+    public String showResult(Model model){
+        model.addAttribute("score", score);
+
+        return "ltResult";
     }
 }
