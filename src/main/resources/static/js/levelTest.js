@@ -74,16 +74,6 @@ questionDiv.append(lt[numOrder].question);
 
 //레벨
 document.getElementById('lv').value = lt[numOrder].lv;
-// var levelDiv = document.getElementById("level");
-// if (lt[numOrder].lv == 1) {
-//     levelDiv.innerText = "하";
-// }else if (lt[numOrder].lv == 2) {
-//     levelDiv.innerText = "중";
-// }else {
-//     levelDiv.innerText = "상";
-// }
-// console.log("***" + lt[numOrder].lv);
-//levelDiv.innerText = "레벨 " + lt[numOrder].lv;
 
 //문제 넘버
 var numDiv = document.getElementById("numOrder");
