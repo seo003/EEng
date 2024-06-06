@@ -27,7 +27,7 @@ public class BookC {
     }
 
     @GetMapping("/readBook.do")
-    public String bookList(int bookId, @RequestParam(defaultValue = "0") int page, Model model) {
+    public String bookContent(int bookId, @RequestParam(defaultValue = "0") int page, Model model) {
         int pageSize = 7; //7문장
         Page<BookContentD> bookContentPage = bookS.findByBookId(bookId, page, pageSize);
         BookInfoD bookInfo = bookS.findBookInfoByBookId(bookId);
