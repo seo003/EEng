@@ -132,7 +132,7 @@
                             </form>
                         </div>
                     </li>
-                    <c:set var="loginUser" value="${sessionScope.loginId}"/>
+                    <c:set var="loginUser" value="${sessionScope.user}"/>
                     <c:choose>
                         <c:when test="${loginUser eq null}">
 
@@ -209,7 +209,7 @@
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle" href="#" role="button"
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">${loginUser}님 환영합니다</span>
+                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">${loginUser.userName}님 환영합니다</span>
                                 </a>
                                 <!-- 사용자 정보 dropdown -->
                                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
