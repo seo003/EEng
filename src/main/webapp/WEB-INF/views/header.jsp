@@ -54,9 +54,9 @@
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">단계</h6>
-                    <a class="collapse-item" href="/voca.do?lv=1">LV 1</a>
-                    <a class="collapse-item" href="/voca.do?lv=2">LV 2</a>
-                    <a class="collapse-item" href="/voca.do?lv=3">LV 3</a>
+                    <a class="collapse-item" href="/voca?lv=1">LV 1</a>
+                    <a class="collapse-item" href="/voca?lv=2">LV 2</a>
+                    <a class="collapse-item" href="/voca?lv=3">LV 3</a>
                 </div>
             </div>
         </li>

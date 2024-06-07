@@ -64,6 +64,7 @@
 <script src="/js/gyr.js"></script>
 <script src="/js/levelTest.js"></script>
 <script src="js/aws.js"></script>
+<script src="js/voca.js"></script>
 
 </body>
 
