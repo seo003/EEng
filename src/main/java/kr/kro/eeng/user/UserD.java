@@ -32,5 +32,4 @@ public class UserD implements Serializable {
 
     @Column(name="USERLV")
     private int userLv;
-
 }
