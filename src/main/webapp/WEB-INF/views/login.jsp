@@ -7,13 +7,6 @@
 <script src="js/loginStatus.js"></script>
 <script type="text/javascript">
     function onSignIn(googleUser) {
-    // function onSignIn() {
-        // 페이지 로딩 시 자동으로 값들고오지 않게 끔 설정
-        // var profile = gapi.auth2.getAuthInstance().currentUser.get().getBasicProfile();
-        // id = profile.getId();
-        // username = profile.getName();
-        // img = profile.getImageUrl();
-        // email = profile.getEmail();
         var profile = googleUser.getBasicProfile();
         var id = profile.getId();
         var username = profile.getName();

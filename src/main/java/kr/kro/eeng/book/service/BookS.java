@@ -4,15 +4,14 @@ import kr.kro.eeng.book.dto.BookContentD;
 import kr.kro.eeng.book.dto.BookInfoD;
 import kr.kro.eeng.book.repository.BookContentR;
 import kr.kro.eeng.book.repository.BookInfoR;
-import kr.kro.eeng.user.UserD;
-import kr.kro.eeng.user.UserR;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -28,8 +27,9 @@ public class BookS {
         return bookInfoR.findAll();
     }
 
-    public List<BookContentD> findByBookId(int bookId) {
-        return bookContentR.findByBookId(bookId);
+    public Page<BookContentD> findByBookId(int bookId, int page, int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        return bookContentR.findByBookId(bookId, pageable);
     }
 
     public BookInfoD findBookInfoByBookId(int bookId) {

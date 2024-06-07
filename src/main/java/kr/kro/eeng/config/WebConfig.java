@@ -13,8 +13,8 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(loginInterceptor)
-//                .addPathPatterns("/**") //인터셉터 호출하는 주소
+//                .addPathPatterns("/**") //인터셉터 적용될 경로
                 .addPathPatterns("/index", "/level-test", "/voca.do", "/booklist.do") //
-                .excludePathPatterns("/login.do", "/css/**", "/js/**", "/assets/**"); //인터셉터 무시하는 주소
+                .excludePathPatterns("/login.do", "/css/**", "/js/**", "/assets/**"); //인터셉터 무시될 경로
     }
 }
