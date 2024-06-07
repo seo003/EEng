@@ -16,11 +16,15 @@ function selectRBtn(rBtn, cardDiv, color) {
     }
 
     preCardDiv = cardDiv;
+
+    // 사용자 선택값 전달
+    setAnswer(radioButton.value);
 }
 
 
 /*** 보기 문항: type==1 ***/
 var userAnswer = [];
+
 function selectCBtn(card) {
     var card = event.currentTarget;
     card.classList.toggle("selected");
@@ -28,13 +32,13 @@ function selectCBtn(card) {
     var button = card.querySelector("button");
     var choiceValue = button.value;
 
-    var userAnswerDiv = document.getElementById("userAnwser");
+    var userAnswerDiv = document.getElementById("userAnswerField");
     var index = userAnswer.indexOf(choiceValue);
 
-    if (index === -1){
+    if (index === -1) {
         userAnswer.push(choiceValue);
         button.classList.add("selected");
-    }else {
+    } else {
         userAnswer.splice(index, 1);
         button.classList.remove("selected");
     }
@@ -43,60 +47,55 @@ function selectCBtn(card) {
 
     userAnswerDiv.innerText = userAnswer.join(' ');
 
-    console.log(choiceValue);
-    console.log(index);
-    console.log(userAnswer);
-
-    //사용자 답변
-
-
-    // if (type === 0){
-    //     userAnswerDiv.remove();
-    // }else {
-    //     userAnswerDiv.innerText = userAnswer.toString();
-    // }
+    // 사용자 선택값 전달
+    setAnswer(userAnswerDiv.innerText);
 }
 
 
-
 /*** 레벨테스트 데이터 가져오기 ***/
-var ltList1 = document.getElementById("ltList1").getAttribute("data-id");
-var ltList2 = document.getElementById("ltList2").getAttribute("data-id");
-var ltList3 = document.getElementById("ltList3").getAttribute("data-id");
+var ltList = document.getElementById("ltList").getAttribute("data-id");
 var ltcList = document.getElementById("ltcList").getAttribute("data-id");
+var numOrder = document.getElementById("num").getAttribute("data-id");
 
 //ltList 데이터 가공
-var lv1 = getTwoDArray(ltList1);
-var lv2 = getTwoDArray(ltList2);
-var lv3 = getTwoDArray(ltList3);
+var lt = getDataArray(ltList);
+
+console.log("ltList: " + ltList)
+console.log("lt: %o", lt)
 
 //ltcList 데이터 가공
-var num = lv1[0].num;
-// console.log(ltcList);
-// console.log(ltcData);
-// console.log(num);
+var num = lt[numOrder].num;
+console.log("ltcList: " + ltcList);
+console.log("num: " + num);
 
 //질문
 var questionDiv = document.getElementById("question");
-questionDiv.append(lv1[0].question);
+questionDiv.append(lt[numOrder].question);
 
 //레벨
-var levelDiv = document.getElementById("level");
-levelDiv.innerText = "레벨 " + lv1[0].lv;
+document.getElementById('lv').value = lt[numOrder].lv;
+
+//문제 넘버
+var numDiv = document.getElementById("numOrder");
+numDiv.innerText = Number(numOrder) + 1 + "번";
 
 //보기
-var type = lv1[0].type;
+var type = lt[numOrder].type;
 divByType(type);
 
 //문장 뜻
 var sentenceDiv = document.getElementById("sentence");
-var sentence = lv1[0].sentence;
-if (type === 0){
+var sentence = lt[numOrder].sentence;
+if (type === 0) {
     sentenceDiv.remove();
-}else {
+} else {
     sentenceDiv.append(sentence);
 }
 
+// 정답
+var answer = lt[numOrder].answer;
+document.getElementById('answer').value = answer;
+document.getElementById("answerField").innerText = "정답: " + answer;
 
 
 /*** ltcList에서 num에 맞는 choices 가져오기 ***/
@@ -126,8 +125,8 @@ function getChoiceByNum(ltcList, num) {
 }
 
 
-/*** LevelTestD: String -> 이차원 배열 ***/
-function getTwoDArray(str) {
+/*** LevelTestD: String -> 객체로 구성된 배열 ***/
+function getDataArray(str) {
     var matches = str.match(/LevelTestD\([^)]+\)/g);
 
     var result = matches.map(function (match) {
@@ -167,7 +166,7 @@ function divByType(type) {
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
                                     <div class="h5 mb-0 text-gray-900">
-                                        <input type="radio" value="${choices[0]}" name="answer" id="rBtn1"/>
+                                        <input type="radio" value="${choices[0]}" name="answer" id="rBtn1" onclick="setAnswer('${choices[0]}')" />
                                         ${choices[0]}
                                     </div>
                                 </div>
@@ -184,7 +183,7 @@ function divByType(type) {
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
                                     <div class="h5 mb-0 text-gray-900">
-                                        <input type="radio" value="2" name="answer" id="rBtn2"/>
+                                        <input type="radio" value="${choices[1]}" name="answer" id="rBtn2"/>
                                         ${choices[1]}
                                     </div>
                                 </div>
@@ -200,7 +199,7 @@ function divByType(type) {
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
                                 <div class="h5 mb-0 text-gray-900">
-                                    <input type="radio" value="3" name="answer" id="rBtn3"/>
+                                    <input type="radio" value="${choices[2]}" name="answer" id="rBtn3"/>
                                     ${choices[2]}
                                 </div>
                             </div>
@@ -215,7 +214,7 @@ function divByType(type) {
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
                                 <div class="h5 mb-0 text-gray-900">
-                                    <input type="radio" value="4" name="answer" id="rBtn4"/>
+                                    <input type="radio" value="${choices[3]}" name="answer" id="rBtn4"/>
                                     ${choices[3]}
                                 </div>
                             </div>
@@ -234,7 +233,7 @@ function divByType(type) {
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
                                     <div class="h5 mb-0 font-weight-bold text-gray-900">
-                                        <button value="${choices[i]}">
+                                         <button type="button" value="${choices[i]}">
                                         ${choices[i]}
                                         </button>
                                     </div>
@@ -250,8 +249,7 @@ function divByType(type) {
     choiceDiv.innerHTML = html;
 }
 
-
-
-
-
-
+// 사용자 정답 button -> value에 넣기
+function setAnswer(value) {
+    document.getElementById('userAnswerInput').value = value;
+}

@@ -73,7 +73,7 @@
                                             Me</label>
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-primary btn-user btn-block">Login</button>
+                                <input type="submit" class="btn btn-primary btn-user btn-block" value="Login"/>
                                 <hr>
                                 <%-- 구글 소셜로그인 --%>
 <%--                                <div class="g-signin2" onclick='onSignIn()'></div>--%>

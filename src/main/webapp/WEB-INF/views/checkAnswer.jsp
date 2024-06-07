@@ -21,7 +21,7 @@
         </div>
 
         <%--  form tag로 사용자 정답 제출  --%>
-        <form method="post" action="/level-test/checkAnswer.do">
+        <form method="post" action="/level-test/nextNum.do">
             <!-- 문제 -->
             <div class="row">
                 <!-- Area Chart -->
@@ -32,7 +32,7 @@
                             <!-- 문제 넘버 출력 -->
                             <h6 class="m-0 font-weight-bold text-primary" id="numOrder"></h6>
                             <div class="dropdown no-arrow yeshover">
-                                <input class="btn btn-primary" type="submit" value="정답 확인"/>
+                                <input class="btn btn-primary" type="submit" value="다음"/>
                             </div>
                         </div>
                         <!-- Card Body -->
@@ -50,13 +50,26 @@
                                 </svg>
                             </div>
                             <br>
-                            <div class="h5 mb-0 text-gray-900" id="userAnswerField">
-                                <!-- 사용자 답변 출력 -->
+                            <div class="h5 mb-0 text-gray-900" id="answerField" style="background-color: mistyrose">
+                                <!-- 정답 출력 -->
                             </div>
+                            <hr>
+
+                            <%--정답 or 오답--%>
+                            <div class="h5 mb-0 text-gray-900" id="tf">
+                                <c:choose>
+                                    <c:when test="${tf == true}">
+                                        <p style="color: rosybrown">정답입니다:)</p>
+                                    </c:when>
+                                    <c:when test="${tf == false}">
+                                        <p style="color: rosybrown">오답입니다:(</p>
+                                    </c:when>
+                                </c:choose>
+                            </div>
+
                             <input type="hidden" name="userAnswer" id="userAnswerInput" value="">
                             <input type="hidden" name="answer" id="answer" value="">
                             <input type="hidden" name="lv" id="lv" value="">
-                            <hr>
                         </div>
                     </div>
                 </div>
