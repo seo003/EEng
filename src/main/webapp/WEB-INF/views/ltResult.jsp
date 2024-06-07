@@ -15,7 +15,10 @@
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Check my English level!</h1>
         </div>
-
+        <a href="/index" class="btn btn-primary btn-icon-split">
+            <span class="text">학습하러 가기</span>
+        </a>
+        <br><br>
             <div class="row">
                 <!-- Area Chart -->
                 <div class="col-xl-12 col-lg-7">
@@ -23,6 +26,7 @@
                         <!-- Card Header - Dropdown -->
                         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                             <h6 class="m-0 font-weight-bold text-primary">수고하셨습니다!</h6>
+
                         </div>
                         <!-- Card Body -->
                         <div class="card-body">

@@ -45,4 +45,8 @@ public class UserS {
     @Getter
     @Setter
     private int num;
+
+    public void register(UserD userD) {
+        userR.save(userD);
+    }
 }

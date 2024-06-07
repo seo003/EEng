@@ -34,12 +34,29 @@ public class UserC {
             System.out.println("로그인 실패");
             return "redirect:/login.do";
         }
-        return "redirect:/index";
+
+        if (user.getUserLv() == 0) {
+            return "redirect:/level-test";
+        } else
+            return "redirect:/index";
     }
 
     @GetMapping("/logout.do")
     public String logout(HttpSession session) {
         session.invalidate();
+        return "redirect:/login.do";
+    }
+
+    @GetMapping("/register.do")
+    public String register() {
+        return "register";
+    }
+
+    @PostMapping("/register.do")
+    public String register(UserD userD) {
+        System.out.println("userD" + userD.toString());
+        userS.register(userD);
+
         return "redirect:/login.do";
     }
 }
