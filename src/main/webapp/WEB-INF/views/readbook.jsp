@@ -52,4 +52,3 @@
     <br>
 </div>
 <%@include file="footer.jsp" %>
-<script src="js/aws.js"></script>
