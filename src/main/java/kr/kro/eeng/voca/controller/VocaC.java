@@ -14,15 +14,15 @@ import java.util.List;
 public class VocaC {
     private final VocaS vocaS;
 
-    @GetMapping("/voca.do")
-    public String voca(int lv, Model model) {
+    @GetMapping("/vocaList.do")
+    public String vocaList(int lv, Model model) {
         List<VocaListD> vocaListFromLv = vocaS.getVocaListbyLv(lv);
-        if (vocaListFromLv.isEmpty() == false) {
+        if (!vocaListFromLv.isEmpty()) {
             //데이터 존재
             model.addAttribute("vocaListFromLv", vocaListFromLv);
         }
 
         model.addAttribute("lv", lv);
-        return "voca";
+        return "vocaList";
     }
 }
