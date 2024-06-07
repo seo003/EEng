@@ -1,9 +1,9 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // 모든 번역할 문장 선택
     const textElements = document.querySelectorAll('[id^="text-to-translate-"]');
 
     // 각 문장에 클릭 이벤트 추가
-    textElements.forEach(function(element) {
+    textElements.forEach(function (element) {
         element.addEventListener('click', function (event) {
             const text = event.target.innerText; // 문장 저장
             const sentenceId = event.target.id.split('-')[3]; // 문장 ID 추출
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     headers: {
                         'Content-Type': 'application/json' // JSON 데이터 전송
                     },
-                    body: JSON.stringify({ text: text })
+                    body: JSON.stringify({text: text})
                 })
                     .then(response => response.json())
                     .then(data => {
@@ -33,5 +33,29 @@ document.addEventListener('DOMContentLoaded', function() {
                     .catch(error => console.error('Error:', error));
             }
         });
+
+        // 각 문장에 우클릭 이벤트 추가
+        element.addEventListener('contextmenu', function (event) {
+            event.preventDefault(); // 기본 우클릭 메뉴 방지
+            const text = event.target.innerText; // 문장 저장
+            pollySpeech(text); // Polly를 사용해 문장 읽기
+        });
     });
 });
+
+function pollySpeech(text) {
+    fetch('/speech', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ text: text }),
+    })
+        .then(response => response.blob())
+        .then(blob => {
+            const url = URL.createObjectURL(blob);
+            const audio = new Audio(url);
+            audio.play();
+        })
+        .catch(error => console.error('Error:', error));
+}

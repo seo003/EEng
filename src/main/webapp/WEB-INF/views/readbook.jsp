@@ -7,7 +7,7 @@
 
     <!-- title -->
     <h1 class="h3 mb-2 text-gray-800">Let's Read Book!</h1>
-    <p class="mb-4">좌클릭 : 문장 뜻 보기<br>우클릭 : 단어 뜻 보기</p>
+    <p class="mb-4">좌클릭 : 문장 뜻 보기<br>우클릭 : 문장 발음 듣기</p>
 
     <!-- content -->
     <div class="card shadow mb-4">
@@ -52,4 +52,4 @@
     <br>
 </div>
 <%@include file="footer.jsp" %>
-<script src="js/translate.js"></script>
+<script src="js/aws.js"></script>
