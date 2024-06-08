@@ -23,6 +23,7 @@
         </label>
     </div>
     <br><br>
+    <form action="addVoca.do" method="post">
     <div class="card border-primary mb-8">
         <div class="card-header d-flex justify-content-between">
             <a href="#" class="btn btn-outline-primary" id="prevButton">이전</a>
@@ -36,6 +37,7 @@
             <a href="#" class="btn btn-primary" id="addWord">내 단어장에 추가</a>
         </div>
     </div>
+    </form>
 
 </div>
 <%@include file="footer.jsp" %>

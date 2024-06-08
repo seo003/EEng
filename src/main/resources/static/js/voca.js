@@ -69,11 +69,10 @@ function showMean() {
 
 
 // 단어 목록 페이지
-
 // 단어만 보기
 function onlyWordList() {
     var tableRows = document.querySelectorAll("#dataTable tbody tr");
-    tableRows.forEach(function(row) {
+    tableRows.forEach(function (row) {
         var meaningCell = row.querySelector(".vocaMeaning");
         if (onlyWordListCheckbox.checked) {
             meaningCell.style.visibility = "hidden"; // 뜻 숨기기
@@ -84,3 +83,50 @@ function onlyWordList() {
 }
 
 
+// 유저 별 단어장 추가
+document.getElementById("addWord").addEventListener("click", function (event) {
+    event.preventDefault(); // 기본 링크 동작 막기
+
+    // vocaId 가져오기
+    //var vocaId = document.getElementById("vocaId").getAttribute("data-vocaId");
+    var vocaId = voca[currentIndex].vocaId;
+    console.log(currentIndex);
+    console.log(vocaId);
+
+    if (vocaId) {
+        fetch("/addToMyVoca", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                vocaId: parseInt(vocaId)
+            })
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert("단어가 내 단어장에 추가되었습니다!");
+                } else {
+                    alert("단어 추가에 실패했습니다.");
+                }
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                alert("단어 추가 중 오류가 발생했습니다.");
+            });
+    } else {
+        alert("유효한 단어 ID가 없습니다.");
+    }
+});
+
+
+function vocaDelete(vocaId) {
+    console.log(vocaId);
+    if (confirm("정말 삭제하시겠습니까?")) {
+        location.href='/vocaDelete?vocaId=' + vocaId;
+        return true;
+    } else {
+        return false;
+    }
+}

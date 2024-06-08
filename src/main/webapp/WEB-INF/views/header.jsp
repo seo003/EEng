@@ -40,7 +40,7 @@
 
         <!-- Nav 단어장 -->
         <li class="nav-item active">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="/myVocaList">
                 <i class="fas fa-fw fa-solid fa-book"></i>
                 <span>내 단어장</span></a>
         </li>
@@ -132,7 +132,7 @@
                             </form>
                         </div>
                     </li>
-                    <c:set var="loginUser" value="${sessionScope.loginId}"/>
+                    <c:set var="loginUser" value="${sessionScope.userId}"/>
                     <c:choose>
                         <c:when test="${loginUser eq null}">
 

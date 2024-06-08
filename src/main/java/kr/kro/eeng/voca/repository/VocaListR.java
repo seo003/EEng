@@ -9,4 +9,8 @@ import java.util.List;
 @Repository
 public interface VocaListR extends JpaRepository<VocaListD, Long> {
     List<VocaListD> findByVocaLv(int vocaLv);
+
+    List<VocaListD> findByVocaIdIn(List<Integer> vocaIds);
 }
+
+
