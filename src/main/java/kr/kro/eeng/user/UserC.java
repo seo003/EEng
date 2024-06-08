@@ -1,6 +1,8 @@
 package kr.kro.eeng.user;
 
 import jakarta.servlet.http.HttpSession;
+import kr.kro.eeng.book.dto.BookInfoD;
+import kr.kro.eeng.book.service.BookS;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,12 +14,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 @RequiredArgsConstructor
 public class UserC {
     private final UserS userS;
+    private final BookS bookS;
 
     @GetMapping("/")
     public String home(HttpSession session) {
         if (session.getAttribute("userId") == null)
             return "redirect:/login";
-        else return "index";
+        else {
+//            BookInfoD bookInfo = bookS.getRandomBookInfo();
+            return "index";
+        }
     }
 
     @GetMapping("/login")
@@ -30,6 +36,7 @@ public class UserC {
         UserD user = userS.login(userId, userPw);
         if (user != null) {
             session.setAttribute("userId", user.getUserId());
+            session.setAttribute("userLv", user.getUserLv());
         } else {
             System.out.println("로그인 실패");
             return "redirect:/login";
