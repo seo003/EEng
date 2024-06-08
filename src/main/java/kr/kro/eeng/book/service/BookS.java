@@ -35,4 +35,13 @@ public class BookS {
     public BookInfoD findBookInfoByBookId(int bookId) {
         return bookInfoR.findByBookId(bookId);
     }
+
+    public BookContentD getRandomBookContent() {
+        return bookContentR.findRandByRand();
+    }
+
+    public String getBookName(int bookId) {
+        BookInfoD bookInfo = bookInfoR.findByBookId(bookId);
+        return bookInfo.getBookName();
+    }
 }

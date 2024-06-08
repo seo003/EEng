@@ -9,5 +9,4 @@ import org.springframework.stereotype.Repository;
 public interface BookInfoR extends JpaRepository<BookInfoD, Long> {
     //    ArrayList<BookInfoD> findAll(); JpaRepository에 이미 정의되어 있음
     BookInfoD findByBookId(int bookId);
-
 }
