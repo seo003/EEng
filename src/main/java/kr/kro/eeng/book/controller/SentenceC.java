@@ -29,14 +29,15 @@ public class SentenceC {
     public String sentence(String userAnswer, String answer, String sentTrans, String bookName, Model model) {
         boolean tf = userAnswer.equals(answer);
 
-        System.out.println("sentTrans "+sentTrans);
-        System.out.println("bookName "+bookName);
-        System.out.println("answer "+answer);
-        System.out.println("userAnswer "+userAnswer);
+        System.out.println("sentTrans " + sentTrans);
+        System.out.println("bookName " + bookName);
+        System.out.println("answer " + answer);
+        System.out.println("userAnswer " + userAnswer);
 
         model.addAttribute("sentTrans", sentTrans);
         model.addAttribute("bookName", bookName);
         model.addAttribute("answer", answer);
+        model.addAttribute("userAnswer", userAnswer);
         model.addAttribute("tf", tf);
         return "checkSentence";
     }
