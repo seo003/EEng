@@ -54,9 +54,9 @@
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">단계</h6>
-                    <a class="collapse-item" href="/voca.do?lv=1">LV 1</a>
-                    <a class="collapse-item" href="/voca.do?lv=2">LV 2</a>
-                    <a class="collapse-item" href="/voca.do?lv=3">LV 3</a>
+                    <a class="collapse-item" href="/voca?lv=1">LV 1</a>
+                    <a class="collapse-item" href="/voca?lv=2">LV 2</a>
+                    <a class="collapse-item" href="/voca?lv=3">LV 3</a>
                 </div>
             </div>
         </li>
@@ -132,7 +132,7 @@
                             </form>
                         </div>
                     </li>
-                    <c:set var="loginUser" value="${sessionScope.user}"/>
+                    <c:set var="loginUser" value="${sessionScope.userId}"/>
                     <c:choose>
                         <c:when test="${loginUser eq null}">
 
@@ -209,7 +209,7 @@
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle" href="#" role="button"
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">${loginUser.userName}님 환영합니다</span>
+                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">${loginUser}님 환영합니다</span>
                                 </a>
                                 <!-- 사용자 정보 dropdown -->
                                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"

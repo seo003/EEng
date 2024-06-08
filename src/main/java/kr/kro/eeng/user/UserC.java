@@ -29,7 +29,7 @@ public class UserC {
     public String login(String userId, String userPw, HttpSession session) {
         UserD user = userS.login(userId, userPw);
         if (user != null) {
-            session.setAttribute("user", user);
+            session.setAttribute("userId", user.getUserId());
         } else {
             System.out.println("로그인 실패");
             return "redirect:/login.do";
