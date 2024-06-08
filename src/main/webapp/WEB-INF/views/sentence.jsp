@@ -72,5 +72,4 @@
     </div>
     <!-- End of Main Content -->
 
-    <script src="js/sentence.js"></script>
     <%@include file="footer.jsp" %>

@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 translatedContainer.innerHTML = "";
             } else {
                 // 번역된 텍스트가 없으면 번역 요청 보내기
-                fetch('/translate', {
+                fetch('/translate.do', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json' // JSON 데이터 전송
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function pollySpeech(text) {
-    fetch('/speech', {
+    fetch('/speech.do', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

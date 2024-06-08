@@ -19,14 +19,14 @@ import java.util.List;
 public class BookC {
     private final BookS bookS;
 
-    @GetMapping("/booklist.do")
+    @GetMapping("/booklist")
     public String bookList(Model model) {
         List<BookInfoD> bookInfoList = bookS.getBookInfoList();
         model.addAttribute("bookInfoList", bookInfoList);
         return "bookList";
     }
 
-    @GetMapping("/readBook.do")
+    @GetMapping("/readBook")
     public String bookContent(int bookId, @RequestParam(defaultValue = "0") int page, Model model) {
         int pageSize = 7; //7문장
         Page<BookContentD> bookContentPage = bookS.findByBookId(bookId, page, pageSize);

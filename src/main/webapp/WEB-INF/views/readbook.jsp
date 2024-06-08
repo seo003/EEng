@@ -27,7 +27,7 @@
     <!-- paging -->
     <div class="pagination">
         <c:if test="${currentPage > 0}">
-            <a href="readBook.do?bookId=${bookInfo.bookId}&page=${currentPage - 1}" class="btn btn-primary btn-icon-split">
+            <a href="readBook?bookId=${bookInfo.bookId}&page=${currentPage - 1}" class="btn btn-primary btn-icon-split">
                 <span class="text"><</span>
             </a>
         </c:if>
@@ -38,13 +38,13 @@
                 </a>
             </c:if>
             <c:if test="${i != currentPage}">
-                <a href="readBook.do?bookId=${bookInfo.bookId}&page=${i}" class="btn btn-primary btn-icon-split">
+                <a href="readBook?bookId=${bookInfo.bookId}&page=${i}" class="btn btn-primary btn-icon-split">
                     <span class="text">${i+1}</span>
                 </a>
             </c:if>
         </c:forEach>
         <c:if test="${currentPage < totalPages - 1}">
-            <a href="readBook.do?bookId=${bookInfo.bookId}&page=${currentPage + 1}" class="btn btn-primary btn-icon-split">
+            <a href="readBook?bookId=${bookInfo.bookId}&page=${currentPage + 1}" class="btn btn-primary btn-icon-split">
                 <span class="text">></span>
             </a>
         </c:if>

@@ -19,7 +19,7 @@
             </thead>
             <tbody>
             <c:forEach var="bookInfo" items="${bookInfoList}">
-                <tr class="bookInfo_click" onclick="location.href='/readBook.do?bookId=${bookInfo.getBookId()}';">
+                <tr class="bookInfo_click" onclick="location.href='/readBook?bookId=${bookInfo.getBookId()}';">
                     <td>${bookInfo.getBookId()}</td>
                     <td>${bookInfo.getBookName()}</td>
                     <c:choose>

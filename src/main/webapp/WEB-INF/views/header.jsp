@@ -66,7 +66,7 @@
         <hr class="sidebar-divider">
 
         <li class="nav-item active">
-            <a class="nav-link" href="/booklist.do">
+            <a class="nav-link" href="/booklist">
                 <i class="fas fa-fw fa-solid fa-book-open"></i>
                 <span>영어책</span></a>
         </li>
@@ -79,16 +79,6 @@
         <!-- Divider -->
         <hr class="sidebar-divider">
 
-        <li class="nav-item active">
-            <a class="nav-link" href="index.html">
-                <i class="fas fa-solid fa-video"></i>
-                <span>영상 추천</span></a>
-        </li>
-        <li class="nav-item active">
-            <a class="nav-link" href="index.html">
-                <i class="fas fa-fw fa-solid fa-comments"></i>
-                <span>AI 대화</span></a>
-        </li>
     </ul>
     <!-- End of Sidebar -->
 
@@ -151,10 +141,10 @@
                                      aria-labelledby="userDropdown">
                                     <a class="dropdown-item" href="/level-test">
                                         <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                        레벨테스트 다시보기
+                                        레벨테스트 다시하기
                                     </a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="/logout.do" data-toggle="modal"
+                                    <a class="dropdown-item" href="/logout" data-toggle="modal"
                                        data-target="#logoutModal">
                                         <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                         Logout

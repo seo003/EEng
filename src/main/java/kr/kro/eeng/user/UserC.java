@@ -15,12 +15,12 @@ public class UserC {
 
     @GetMapping("/")
     public String home(HttpSession session) {
-        if (session.getAttribute("loginId") == null)
-            return "redirect:/login.do";
+        if (session.getAttribute("userId") == null)
+            return "redirect:/login";
         else return "index";
     }
 
-    @GetMapping("/login.do")
+    @GetMapping("/login")
     public String login() {
         return "login";
     }
@@ -32,7 +32,7 @@ public class UserC {
             session.setAttribute("userId", user.getUserId());
         } else {
             System.out.println("로그인 실패");
-            return "redirect:/login.do";
+            return "redirect:/login";
         }
 
         if (user.getUserLv() == 0) {
@@ -41,13 +41,13 @@ public class UserC {
             return "redirect:/index";
     }
 
-    @GetMapping("/logout.do")
+    @GetMapping("/logout")
     public String logout(HttpSession session) {
         session.invalidate();
-        return "redirect:/login.do";
+        return "redirect:/login";
     }
 
-    @GetMapping("/register.do")
+    @GetMapping("/register")
     public String register() {
         return "register";
     }
@@ -57,6 +57,6 @@ public class UserC {
         System.out.println("userD" + userD.toString());
         userS.register(userD);
 
-        return "redirect:/login.do";
+        return "redirect:/login";
     }
 }
