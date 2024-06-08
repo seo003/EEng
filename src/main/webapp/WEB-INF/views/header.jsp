@@ -40,7 +40,7 @@
 
         <!-- Nav 단어장 -->
         <li class="nav-item active">
-            <a class="nav-link" href="/myVocaList?userId=${sessionScope.userId}">
+            <a class="nav-link" href="/myVocaList">
                 <i class="fas fa-fw fa-solid fa-book"></i>
                 <span>내 단어장</span></a>
         </li>

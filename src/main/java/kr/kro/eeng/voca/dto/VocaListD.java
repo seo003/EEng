@@ -12,18 +12,20 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "VOCALIST")
-@Getter @Setter @ToString
+@Getter
+@Setter
+@ToString
 public class VocaListD implements Serializable {
     @Id
-    @Column(name="VOCAID")
+    @Column(name = "VOCAID")
     private int vocaId;
 
-    @Column(name="VOCA")
+    @Column(name = "VOCA")
     private String voca;
 
-    @Column(name="VOCAMEAN")
+    @Column(name = "VOCAMEAN")
     private String vocaMean;
 
-    @Column(name="VOCALV")
+    @Column(name = "VOCALV")
     private int vocaLv;
 }
