@@ -27,7 +27,7 @@
                         <!-- Card Header - Dropdown -->
                         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                             <!-- 책 제목 출력 -->
-                            <h6 class="m-0 font-weight-bold text-primary">${bookName} 中</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">"${bookName}"</h6>
                             <div class="dropdown no-arrow yeshover">
                                 <a href="/sentence" class="btn btn-primary">
                                     <span class="text">다음</span>
@@ -50,8 +50,12 @@
                                 <span>${sentTrans}</span>
                             </div>
                             <br>
-                            <div class="h5 mb-0 text-gray-900" id="answerField" style="background-color: mistyrose">
-                                ${answer}
+                            <div class="h5 mb-0 text-gray-900" id="answerBField" style="background-color: mistyrose">
+                                정답: ${answer}
+                            </div>
+                            <br>
+                            <div class="h5 mb-0 text-gray-900" id="userAnswerBField">
+                                ${userAnswer}
                             </div>
                             <hr>
 

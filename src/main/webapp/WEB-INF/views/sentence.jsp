@@ -29,7 +29,7 @@
                         <!-- Card Header - Dropdown -->
                         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                             <%-- 책 제목 출력 --%>
-                            <h6 class="m-0 font-weight-bold text-primary">${bookName} 中</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">"${bookName}"</h6>
                             <div class="dropdown no-arrow yeshover">
                                 <input class="btn btn-primary" type="submit" value="정답 확인"/>
                             </div>
@@ -50,11 +50,11 @@
                                 <span id="koreanSentence"></span>
                             </div>
                             <br>
-                            <div class="h5 mb-0 text-gray-900" id="userAnswerField">
+                            <div class="h5 mb-0 text-gray-900" id="userAField">
                                 <!-- 사용자 답변 출력 -->
                             </div>
-                            <input type="hidden" name="userAnswer" id="userAnswerInput" value="">
-                            <input type="hidden" name="answer" id="answer" value="">
+                            <input type="hidden" name="userAnswer" id="userAInput" value="">
+                            <input type="hidden" name="answer" id="answerB" value="">
                             <input type="hidden" name="sentTrans" value="${fn:escapeXml(bookContent.sentTrans)}">
                             <input type="hidden" name="bookName" value="${bookName}">
                             <hr>
@@ -64,7 +64,7 @@
             </div>
         </form>
 
-        <div id="choices">
+        <div id="choicesB">
             <!-- 단어 선택지 -->
         </div>
         <!-- /.container-fluid -->
