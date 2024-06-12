@@ -18,8 +18,6 @@ public class IndexC {
         if (session.getAttribute("userId") == null)
             return "redirect:/login";
         else {
-            BookInfoD bookInfo = bookS.getRandomBookInfo();
-            model.addAttribute("bookInfo", bookInfo);
             return "index";
         }
     }
