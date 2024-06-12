@@ -15,7 +15,7 @@
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Check my English level!</h1>
         </div>
-        <a href="/index" class="btn btn-primary btn-icon-split">
+        <a href="/" class="btn btn-primary btn-icon-split">
             <span class="text">학습하러 가기</span>
         </a>
         <br><br>
