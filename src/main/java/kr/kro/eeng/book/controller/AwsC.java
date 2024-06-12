@@ -34,7 +34,7 @@ public class AwsC {
     @Autowired
     private BookContentR bookContentR;
 
-    @PostMapping("/translate")
+    @PostMapping("/translate.do")
     public Map<String, String> translateText(@RequestBody Map<String, String> request) {
         String textToTranslate = request.get("text");
         String translatedText;
@@ -73,7 +73,7 @@ public class AwsC {
         return responseBody;
     }
 
-    @PostMapping("/speech")
+    @PostMapping("/speech.do")
     public void synthesizeSpeech(@RequestBody Map<String, String> request, HttpServletResponse response) throws IOException {
         String textToSynthesize = request.get("text");
         logger.info("Received text to synthesize: {}", textToSynthesize);

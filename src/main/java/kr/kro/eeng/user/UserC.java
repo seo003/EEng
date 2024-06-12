@@ -1,6 +1,8 @@
 package kr.kro.eeng.user;
 
 import jakarta.servlet.http.HttpSession;
+import kr.kro.eeng.book.dto.BookInfoD;
+import kr.kro.eeng.book.service.BookS;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,38 +15,44 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class UserC {
     private final UserS userS;
 
-    @GetMapping("/")
-    public String home(HttpSession session) {
-        if (session.getAttribute("loginId") == null)
-            return "redirect:/login.do";
-        else return "index";
-    }
-
-    @GetMapping("/login.do")
+    @GetMapping("/login")
     public String login() {
         return "login";
     }
 
     @PostMapping("/login.do")
     public String login(String userId, String userPw, HttpSession session) {
-        if (userS.login(userId, userPw)) {
-            session.setAttribute("loginId", userId);
+        UserD user = userS.login(userId, userPw);
+        if (user != null) {
+            session.setAttribute("userId", user.getUserId());
+            session.setAttribute("userLv", user.getUserLv());
         } else {
             System.out.println("로그인 실패");
-            return "redirect:/login.do";
+            return "redirect:/login";
         }
-        return "redirect:/";
-//        레벨테스트 여부에 따라 return < 오류
-//        if (userS.doLevelTest(userId)) {
-//            return "redirect:/";
-//        } else {
-//            return "/level-test";
-//        }
+
+        if (user.getUserLv() == 0) {
+            return "redirect:/level-test";
+        } else
+            return "redirect:/";
     }
 
-    @GetMapping("/logout.do")
+    @GetMapping("/logout")
     public String logout(HttpSession session) {
         session.invalidate();
-        return "redirect:/login.do";
+        return "redirect:/login";
+    }
+
+    @GetMapping("/register")
+    public String register() {
+        return "register";
+    }
+
+    @PostMapping("/register.do")
+    public String register(UserD userD) {
+        System.out.println("userD" + userD.toString());
+        userS.register(userD);
+
+        return "redirect:/login";
     }
 }

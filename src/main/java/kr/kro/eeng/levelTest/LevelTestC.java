@@ -1,6 +1,8 @@
 package kr.kro.eeng.levelTest;
 
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
+import kr.kro.eeng.user.UserD;
 import kr.kro.eeng.user.UserS;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -84,9 +86,10 @@ public class LevelTestC {
     }
 
     @GetMapping("/level-test/result")
-    public String showResult(Model model){
+    public String showResult(Model model, HttpSession session){
+        UserD userD = (UserD)session.getAttribute("user");
+        levelTestS.saveLv(userD, score);
         model.addAttribute("score", score);
-
         return "ltResult";
     }
 }

@@ -37,7 +37,7 @@
             <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="/logout.do">Logout</a>
+                <a class="btn btn-primary" href="/logout">Logout</a>
             </div>
         </div>
     </div>
@@ -64,6 +64,8 @@
 <script src="/js/gyr.js"></script>
 <script src="/js/levelTest.js"></script>
 <script src="js/aws.js"></script>
+<script src="js/voca.js"></script>
+<script src="js/sentence.js"></script>
 
 </body>
 

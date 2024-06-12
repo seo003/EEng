@@ -29,4 +29,7 @@ public interface BookContentR extends JpaRepository<BookContentD, Long> {
 
     @Query("SELECT sentTrans FROM BookContentD WHERE sent = :sent")
     String findTransBySent(String sent);
+    @Query(value = "SELECT * FROM (SELECT * FROM BOOKCONTENT WHERE TRANSTF = 1 ORDER BY DBMS_RANDOM.VALUE) WHERE ROWNUM = 1", nativeQuery = true)
+    BookContentD findRandByRand();
+
 }

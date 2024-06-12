@@ -40,7 +40,7 @@
 
         <!-- Nav 단어장 -->
         <li class="nav-item active">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="/myVocaList">
                 <i class="fas fa-fw fa-solid fa-book"></i>
                 <span>내 단어장</span></a>
         </li>
@@ -54,9 +54,10 @@
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">단계</h6>
-                    <a class="collapse-item" href="/voca.do?lv=1">LV 1</a>
-                    <a class="collapse-item" href="/voca.do?lv=2">LV 2</a>
-                    <a class="collapse-item" href="/voca.do?lv=3">LV 3</a>
+
+                    <a class="collapse-item" href="/voca?lv=1">LV 1<c:if test="${userLv == 1}"> 추천!</c:if></a>
+                    <a class="collapse-item" href="/voca?lv=2">LV 2<c:if test="${userLv == 2}"> 추천!</c:if></a>
+                    <a class="collapse-item" href="/voca?lv=3">LV 3<c:if test="${userLv == 3}"> 추천!</c:if></a>
                 </div>
             </div>
         </li>
@@ -66,12 +67,12 @@
         <hr class="sidebar-divider">
 
         <li class="nav-item active">
-            <a class="nav-link" href="/booklist.do">
+            <a class="nav-link" href="/booklist">
                 <i class="fas fa-fw fa-solid fa-book-open"></i>
                 <span>영어책</span></a>
         </li>
         <li class="nav-item active">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="/sentence">
                 <i class="fas fa-fw fa-solid fa-pen"></i>
                 <span>문장 배열 연습</span></a>
 
@@ -79,16 +80,6 @@
         <!-- Divider -->
         <hr class="sidebar-divider">
 
-        <li class="nav-item active">
-            <a class="nav-link" href="index.html">
-                <i class="fas fa-solid fa-video"></i>
-                <span>영상 추천</span></a>
-        </li>
-        <li class="nav-item active">
-            <a class="nav-link" href="index.html">
-                <i class="fas fa-fw fa-solid fa-comments"></i>
-                <span>AI 대화</span></a>
-        </li>
     </ul>
     <!-- End of Sidebar -->
 
@@ -132,78 +123,13 @@
                             </form>
                         </div>
                     </li>
-                    <c:set var="loginUser" value="${sessionScope.loginId}"/>
+                    <c:set var="loginUser" value="${sessionScope.userId}"/>
                     <c:choose>
                         <c:when test="${loginUser eq null}">
 
                         </c:when>
                         <c:otherwise>
                             <!-- Login 후 프론트 -->
-                            <!-- 알람 -->
-                            <li class="nav-item dropdown no-arrow mx-1">
-                                <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
-                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fas fa-bell fa-fw"></i>
-                                    <!-- 알람 수 -->
-                                    <span class="badge badge-danger badge-counter">1+</span>
-                                </a>
-                                <!-- 알람 내용 -->
-                                <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                     aria-labelledby="alertsDropdown">
-                                    <h6 class="dropdown-header">
-                                        Alerts Center
-                                    </h6>
-
-                                    <a class="dropdown-item d-flex align-items-center" href="#">
-                                        <div class="mr-3">
-                                            <div class="icon-circle bg-primary">
-                                                <i class="fas fa-file-alt text-white"></i>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div class="small text-gray-500">December 12, 2019</div>
-                                            <span class="font-weight-bold">A new monthly report is ready to download!</span>
-                                        </div>
-                                    </a>
-                                    <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
-                                </div>
-                            </li>
-
-                            <!-- 메시지 -->
-                            <li class="nav-item dropdown no-arrow mx-1">
-                                <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
-                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fas fa-envelope fa-fw"></i>
-                                    <!-- 메시지 수 -->
-                                    <span class="badge badge-danger badge-counter">1</span>
-                                </a>
-                                <!-- 메시지 내용 -->
-                                <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                     aria-labelledby="messagesDropdown">
-                                    <h6 class="dropdown-header">
-                                        Message Center
-                                    </h6>
-
-                                    <a class="dropdown-item d-flex align-items-center" href="#">
-                                        <div class="dropdown-list-image mr-3">
-                                            <img class="rounded-circle" src="img/undraw_profile_1.svg"
-                                                 alt="...">
-                                            <div class="status-indicator bg-success"></div>
-                                        </div>
-                                        <div class="font-weight-bold">
-                                            <div class="text-truncate">Hi there! I am wondering if you can help me with
-                                                a
-                                                problem I've been having.
-                                            </div>
-                                            <div class="small text-gray-500">Emily Fowler · 58m</div>
-                                        </div>
-                                    </a>
-
-                                    <a class="dropdown-item text-center small text-gray-500" href="#">Read More
-                                        Messages</a>
-                                </div>
-                            </li>
-
                             <div class="topbar-divider d-none d-sm-block"></div>
 
                             <li class="nav-item dropdown no-arrow">
@@ -214,20 +140,12 @@
                                 <!-- 사용자 정보 dropdown -->
                                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                      aria-labelledby="userDropdown">
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="/level-test">
                                         <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                        Profile
-                                    </a>
-                                    <a class="dropdown-item" href="#">
-                                        <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                        Settings
-                                    </a>
-                                    <a class="dropdown-item" href="#">
-                                        <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                        Activity Log
+                                        레벨테스트 다시하기
                                     </a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="/logout.do" data-toggle="modal"
+                                    <a class="dropdown-item" href="/logout" data-toggle="modal"
                                        data-target="#logoutModal">
                                         <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                         Logout
