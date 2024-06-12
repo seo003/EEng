@@ -21,12 +21,11 @@
                 <h6 class="m-0 font-weight-bold text-primary">오늘의 책</h6>
             </div>
             <div class="card-body">
-                <a href="/readBook?bookId=${bookInfo.getBookId()}" style="margin:1%">
+                <a href="/readBook?bookId=${bookInfo.bookId}" style="margin:1%">
                     <div class="card bookImage" style="width: 18rem; ">
-                        <img src="/assets/img/${bookInfo.getBookName()}.png" class="card-img-top" alt="..."
-                             asdawdas>
+                        <img src="/assets/img/${bookInfo.bookName}.png" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <p class="card-text">${bookInfo.getBookName()}</p>
+                            <p class="card-text">${bookInfo.bookName}</p>
                         </div>
                     </div>
                 </a>

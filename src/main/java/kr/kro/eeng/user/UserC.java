@@ -14,17 +14,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 @RequiredArgsConstructor
 public class UserC {
     private final UserS userS;
-    private final BookS bookS;
-
-    @GetMapping("/")
-    public String home(HttpSession session) {
-        if (session.getAttribute("userId") == null)
-            return "redirect:/login";
-        else {
-//            BookInfoD bookInfo = bookS.getRandomBookInfo();
-            return "index";
-        }
-    }
 
     @GetMapping("/login")
     public String login() {
@@ -45,7 +34,7 @@ public class UserC {
         if (user.getUserLv() == 0) {
             return "redirect:/level-test";
         } else
-            return "redirect:/index";
+            return "redirect:/";
     }
 
     @GetMapping("/logout")
