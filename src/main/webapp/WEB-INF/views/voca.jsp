@@ -11,7 +11,8 @@
 <div class="container-fluid">
 
     <h1 class="h3 mb-2 text-gray-800">LV ${lv}</h1>
-    <br>
+
+    <p class="mb-4">우클릭하면 단어의 발음을 들을 수 있어요!</p>
     <div class="dropdown no-arrow">
         <a href="/vocaList?lv=${lv}" class="btn btn-primary btn-icon-split">
             <span class="text">단어 목록보기</span>
@@ -38,6 +39,6 @@
         </div>
     </div>
     </form>
-
+    <br>
 </div>
 <%@include file="footer.jsp" %>
