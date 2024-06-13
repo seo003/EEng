@@ -41,6 +41,16 @@ document.addEventListener('DOMContentLoaded', function () {
             pollySpeech(text); // Polly를 사용해 문장 읽기
         });
     });
+
+    // vocaWord 가져오기
+    const vocaWordElement = document.getElementById('vocaWord');
+
+    // vocaWord 우클릭 이벤트 추가
+    vocaWordElement.addEventListener('contextmenu', function (event) {
+        event.preventDefault(); // 기본 우클릭 메뉴 방지
+        const text = event.target.innerText; // 단어 저장
+        pollySpeech(text); // Polly를 사용해 단어 발음
+    });
 });
 
 function pollySpeech(text) {

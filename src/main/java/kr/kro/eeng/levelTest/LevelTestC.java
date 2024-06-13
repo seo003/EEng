@@ -87,8 +87,8 @@ public class LevelTestC {
 
     @GetMapping("/level-test/result")
     public String showResult(Model model, HttpSession session){
-        UserD userD = (UserD)session.getAttribute("user");
-        levelTestS.saveLv(userD, score);
+        String userId = (String)session.getAttribute("userId");
+        levelTestS.saveLv(userId, score);
         model.addAttribute("score", score);
         return "ltResult";
     }

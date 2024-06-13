@@ -44,9 +44,4 @@ public class BookS {
         BookInfoD bookInfo = bookInfoR.findByBookId(bookId);
         return bookInfo.getBookName();
     }
-
-
-    public BookInfoD getRandomBookInfo() {
-        return bookInfoR.getRandomBookInfo();
-    }
 }

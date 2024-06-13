@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -23,7 +24,7 @@ public class LevelTestS {
         return (ArrayList<LevelTestChoiceD>) ltcR.findAll();
     }
 
-    public void saveLv(UserD userD, int score) {
+    public void saveLv(String userId, int score) {
         int userLv;
         if (score >= 0 && score < 19) {
             userLv = 1;
@@ -32,6 +33,8 @@ public class LevelTestS {
         } else {
             userLv = 3;
         }
+        Optional<UserD> optionUserD = userR.findByUserId(userId);
+        UserD userD = optionUserD.get();
         userD.setUserLv(userLv);
         userR.save(userD);
     }
