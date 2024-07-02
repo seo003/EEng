@@ -89,6 +89,8 @@ public class LevelTestC {
     public String showResult(Model model, HttpSession session){
         String userId = (String)session.getAttribute("userId");
         levelTestS.saveLv(userId, score);
+        int userLv = userS.getUserLv(userId);
+        session.setAttribute("userLv", userLv);
         model.addAttribute("score", score);
         return "ltResult";
     }

@@ -1,7 +1,6 @@
 
 package kr.kro.eeng.user;
 
-import jakarta.servlet.http.HttpSession;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -48,5 +47,11 @@ public class UserS {
 
     public void register(UserD userD) {
         userR.save(userD);
+    }
+
+    public int getUserLv(String userId) {
+        Optional<UserD> userD =  userR.findByUserId(userId);
+        UserD user = userD.get();
+        return user.getUserLv();
     }
 }
