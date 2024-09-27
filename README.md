@@ -2,13 +2,16 @@
 
 영어 학습 웹 애플리케이션
 
+
 ## ✏️ 역할
 - PM: 구예림
 - 팀원: 김서영
 
+
 ## 🗓️ 개발 일정
 
 2024.03 ~ 2024.06 [4개월]
+
 
 ## 📌 주요 기능
 
@@ -26,6 +29,7 @@
 > - 단어장을 통한 단어 공부
 >     - 단어의 뜻 표기를 사용자 개인이 설정하여 맞춤 학습
 >     - TTS 기능으로 발음 연습
+
 
 ## 📚 기술 스택
 
@@ -45,9 +49,11 @@
 <img src="https://img.shields.io/badge/AmazonWebServices-FF9E0F?style=for-the-badge&logo=AmazonWebServices&logoColor=white"> <img src="https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=Notion&logoColor=white"> <img src="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white"> <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">
 
 
+
 ## 📎 ERD Diagram
 
 ![erd](https://github.com/user-attachments/assets/8867a932-0db4-4446-bb7f-6580e6d16e3e)
+
 
 
 ## 🖥️ 실행 화면
