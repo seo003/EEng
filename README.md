@@ -87,7 +87,6 @@
 
 >영어책
 <br>
-![image](https://github.com/user-attachments/assets/ecd3025a-b71c-4018-a195-71534f8935b6)
 ![책](https://github.com/user-attachments/assets/229b1cf4-fafb-46bd-a6c2-5d5290a4491d)
 <br>
 <br>
